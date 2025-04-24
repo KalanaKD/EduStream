@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduStream</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="page-title">EduStream</div>
+
+    <div id="join-section">
+        <input type="text" id="room" placeholder="Enter Room ID">
+        <button onclick="joinRoom()" id="joinButton">Join Room</button>
+    </div>
+
+    <div id="videos">
+        <div class="video-container main-video">
+            <video id="localVideo" autoplay playsinline muted></video>
+            <div class="username-label">You</div>
+        </div>
+    </div>
+    <div id="controls">
+        <button onclick="toggleMic()" id="micButton" class="control-button">
+            <i class="fas fa-microphone"></i>
+            <span class="control-text">Mute Mic</span>
+        </button>
+        
+        <button onclick="toggleCamera()" id="cameraButton" class="control-button">
+            <i class="fas fa-video"></i>
+            <span class="control-text">Mute Video</span>
+        </button>
+        
+        <button onclick="toggleScreenShare()" id="screenShareButton" class="control-button">
+            <i class="fas fa-desktop"></i>
+            <span class="control-text">Share Screen</span>
+        </button>
+
+        <button onclick="toggleRecording()" id="recordButton" class="control-button">
+            <i class="fas fa-record-vinyl"></i>
+            <span class="control-text">Record</span>
+        </button>
+        
+        <button onclick="endCall()" id="leaveButton" class="control-button leave-button">
+            <i class="fas fa-phone-slash"></i>
+            <span class="control-text">Leave</span>
+        </button>
+    </div>
+
+    <div id="chat">
+        <div class="chat-header">Chat</div>
+        <div id="chatbox"></div>
+        <div id="inputArea">
+            <input type="text" id="messageInput" placeholder="Type a message">
+            <button onclick="sendMessage()" id="sendButton">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
